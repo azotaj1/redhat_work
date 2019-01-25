@@ -37,12 +37,18 @@ items:
     source:
       type: Git
       git:
-        uri: https://gitlab.com/szerjavic/openshift_homework
+        uri: ${REPO}
       contextDir: openshift-tasks   
     strategy:
-      type: JenkinsPipeline
-      jenkinsPipelineStrategy:
-        jenkinsfilePath: Jenkinsfile
+        jenkinsPipelineStrategy:
+          env:
+          - name: 'Homework GUID'
+            value: ${GUID}
+          - name: 'Repository'
+            value: ${REPO}
+          - name: 'Homework cluster'
+            value: ${CLUSTER}
+        type: JenkinsPipeline
 kind: List
 metadata: []" | oc create -f - -n ${GUID}-jenkins
 
