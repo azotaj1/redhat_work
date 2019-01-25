@@ -42,11 +42,11 @@ items:
     strategy:
         jenkinsPipelineStrategy:
           env:
-          - name: 'Homework GUID'
+          - name: GUID
             value: ${GUID}
-          - name: 'Repository'
+          - name: REPO
             value: ${REPO}
-          - name: 'Homework cluster'
+          - name: CLUSTER
             value: ${CLUSTER}
         type: JenkinsPipeline
 kind: List
