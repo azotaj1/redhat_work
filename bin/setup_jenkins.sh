@@ -29,18 +29,18 @@ oc new-build  -D $'FROM docker.io/openshift/jenkins-agent-maven-35-centos7:v3.11
 
 echo "apiVersion: v1
 items:
-- kind: "BuildConfig"
-  apiVersion: "v1"
+- kind: BuildConfig
+  apiVersion: v1
   metadata:
-    name: "tasks-pipeline"
+    name: tasks-pipeline
   spec:
     source:
-      type: "Git"
+      type: Git
       git:
-        uri: "https://gitlab.com/szerjavic/openshift_homework"
+        uri: https://gitlab.com/szerjavic/openshift_homework
       contextDir: openshift-tasks   
     strategy:
-      type: "JenkinsPipeline"
+      type: JenkinsPipeline
       jenkinsPipelineStrategy:
         jenkinsfilePath: Jenkinsfile
 kind: List
